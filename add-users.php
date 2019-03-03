@@ -149,7 +149,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 						</div>
 						<div class="form-group">
 							<label>User Phone <span class="text-danger">*</span></label>
-							<input type="tel" name="userphone" id="userphone" class="form-control" placeholder="Enter user phone" required>
+							<input type="tel" class="tel form-control" name="userphone" id="userphone" x-autocompletetype="tel" placeholder="Enter User Phone Number" required>
 						</div>
 						<div class="form-group">
 							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-plus-circle"></i> Add User</button>
@@ -180,5 +180,18 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 	
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.caret/0.1/jquery.caret.js"></script>
+	<script src="https://www.solodev.com/_/assets/phone/jquery.mobilePhoneNumber.js"></script>
+	<script>
+		$(document).ready(function() {
+		jQuery(function($){
+			  var input = $('[type=tel]')
+			  input.mobilePhoneNumber({allowPhoneWithoutPrefix: '+1'});
+			  input.bind('country.mobilePhoneNumber', function(e, country) {
+				$('.country').text(country || '')
+			  })
+			 });
+		});
+	</script>
 </body>
 </html>
